@@ -1,0 +1,166 @@
+DROP TABLE IF EXISTS `competitor`;
+CREATE TABLE `competitor` (
+CompetitorID` int(11) NOT NULL, /////////////////////////// Rakip ID
+CompetitorTitle` varchar(255) DEFAULT NULL,///////////////
+CompetitorURL` varchar(255) DEFAULT NULL,
+CompetitorDesc` varchar(255) DEFAULT NULL,
+CompetitorGroup` varchar(50) DEFAULT NULL,
+CompetitorMarket` enum('TURKEY','UK') DEFAULT NULL,
+IsDelete` int(2) DEFAULT NULL,
+  PRIMARY KEY (`CompetitorID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for hotels
+-- ----------------------------
+DROP TABLE IF EXISTS `hotels`;
+CREATE TABLE `hotels` (
+HotelID` int(11) NOT NULL AUTO_INCREMENT,
+HotelCode` varchar(50) DEFAULT NULL,
+HotelTitle` varchar(255) DEFAULT NULL,
+HotelRegion` varchar(255) DEFAULT NULL,
+HotelRegionCode` varchar(50) DEFAULT NULL,
+HotelCountry` varchar(255) DEFAULT NULL,
+IsDelete` int(2) DEFAULT NULL,
+  PRIMARY KEY (`HotelID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for hotelurl
+-- ----------------------------
+DROP TABLE IF EXISTS `hotelurl`;
+CREATE TABLE `hotelurl` (
+HotelUrlID` int(11) NOT NULL AUTO_INCREMENT,
+HotelUrlHotelID` int(11) DEFAULT NULL,
+HotelUrlCompetitorID` int(11) DEFAULT NULL,
+HotelUrl` varchar(500) DEFAULT NULL,
+IsDelete` int(2) DEFAULT NULL,
+  PRIMARY KEY (`HotelUrlID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for price
+-- ----------------------------
+DROP TABLE IF EXISTS `price`;
+CREATE TABLE `price` (
+PriceID` int(11) NOT NULL AUTO_INCREMENT,
+PriceSetID` int(11) DEFAULT NULL,
+PriceProductID` int(11) DEFAULT NULL,
+PriceCompetitorID` int(11) DEFAULT NULL,
+PriceTitle` varchar(255) DEFAULT NULL,
+PriceDesc` varchar(255) DEFAULT NULL,
+PriceAmount` decimal(10,2) DEFAULT NULL,
+PriceCur` varchar(4) DEFAULT NULL,
+PriceDate` datetime DEFAULT NULL,
+IsDelete` int(2) DEFAULT NULL,
+  PRIMARY KEY (`PriceID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for priceset
+-- ----------------------------
+DROP TABLE IF EXISTS `priceset`;
+CREATE TABLE `priceset` (
+PriceSetID` int(11) NOT NULL AUTO_INCREMENT,
+PriceSetType` enum('PACKAGE','HOTEL') DEFAULT NULL,
+PriceSetDate` datetime DEFAULT NULL,
+PriceSetStartDate` date DEFAULT NULL,
+PriceSetFinishDate` date DEFAULT NULL,
+PriceSetQuery` varchar(255) DEFAULT NULL,
+IsDelete` int(2) DEFAULT NULL,
+  PRIMARY KEY (`PriceSetID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+#####competitor######
+1   CompetitorID - Rakip Kimliği
+1   CompetitorTitle - Rakip Adı
+1   CompetitorURL - Rakip Url
+0   CompetitorDesc - 
+0   CompetitorGroup - 
+0   CompetitorMarket - 
+0    IsDelete - 
+
+#####hotels#####
+1   HotelID - Otel Kimliği
+0   HotelCode - Otel Kodu
+1   HotelTitle - Otel Adı
+0   HotelRegion - Otel Bölgesi
+0   HotelRegionCode - Otel Bölge Kodu
+0   HotelCountry - Otel Ülkesi 
+0   IsDelete - Sil 
+
+#####hotelurl#####
+1   HotelUrlID - Otel URL Kimliği
+1   HotelUrlHotelID - Otel Url Otel Kimliği ->HotelID
+1   HotelUrlCompetitorID - Otel Url Rakip Kimliği
+1   HotelUrl - Otel Url
+1   IsDelete - Sil -> 1 ise silinmiş/ 0 İse aktif
+
+#####price#####
+1   PriceID - Fiyat Kimliği
+1   PriceSetID - Paket Fiyat Kimliği
+1   PriceProductID - Fiyat Ürün Kimliği ->HotelID
+1   PriceCompetitorID - Fiyat Rakip Kimliği
+1   PriceTitle - Fiyat Başlığı
+1   PriceDesc - 
+1   PriceAmount - Fiyat Tutarı
+1   PriceCur - Fiyat Cur
+1   PriceDate - Fiyat Tarihi
+1   IsDelete - Sil
+
+#####priceset#####
+1   PriceSetID - Paket Fiyat Kimliği
+1   PriceSetType - Paket Fiyat Türü
+1   PriceSetDate - Paket Fiyat Tarihi
+1   PriceSetStartDate - Paket Fiyat Başlangıç Tarihi
+1   PriceSetFinishDate - Paket Fiyat Bitiş Tarihi
+1   PriceSetQuery - Paket Fiyat Sorgusu
+1   IsDelete - Sil
+
+
+
+
+
+#####price#####
+PriceID
+PriceSetID
+PriceProductID
+PriceCompetitorID
+PriceTitle
+PriceDesc
+PriceAmount
+PriceCur
+PriceDate
+IsDelete
+
+#####priceset#####
+PriceSetID
+PriceSetType
+PriceSetDate
+PriceSetStartDate
+PriceSetFinishDate
+PriceSetQuery
+IsDelete
+
+
+
+#####price#####
+PriceID:""
+PriceSet:
+  {
+    PriceSetType:""
+    PriceSetDate:""
+    PriceSetStartDate:""
+    PriceSetFinishDate:""
+    PriceSetQuery:""
+  }
+PriceProductID:""
+PriceCompetitorID:""
+PriceTitle:""
+PriceDesc:""
+PriceAmount:""
+PriceCur:""
+PriceDate:""
+IsDelete:""

@@ -1,0 +1,5 @@
+Path Tanımlaması Yapma
+Bilgisayar-> Sağ tık -> Özellikler
+->Gelişmiş sistem ayarları-> Ortam Değişkenleri
+->Path Değişkenine çift tıklayıp .exe yolunu ekle
+Örn: C:\Users\CyberRock\Desktop\Fiyat Kıyaslama Python\Tool
