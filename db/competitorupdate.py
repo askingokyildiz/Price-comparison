@@ -13,6 +13,8 @@ except:
 else:
     if competitorfind:
         print(competitorfind)
+        competitorTitle=input('Competitor Title: ')
+        competitorURL=input('Competitor URL: ')
         competitorDesc=input('Competitor Desc: ')
         competitorGroup=input('Competitor Group: ')
         competitorMarket=input('Competitor Market: ')
@@ -22,7 +24,7 @@ else:
             print("Güncelleme Başarısız!")
             exit()
         else:
-            colcompetitorupdate ={ "$set": { "CompetitorDesc":competitorDesc, "CompetitorGroup":competitorGroup, "CompetitorMarket":competitorMarket, "IsDelete":isDelete }}
+            colcompetitorupdate ={ "$set": { "CompetitorTitle":competitorTitle, "CompetitorURL":competitorURL, "CompetitorDesc":competitorDesc, "CompetitorGroup":competitorGroup, "CompetitorMarket":competitorMarket, "IsDelete":isDelete }}
             mycol.update_one(competitorId, colcompetitorupdate)
             print("Güncellendi.")
     else:

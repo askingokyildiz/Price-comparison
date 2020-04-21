@@ -148,19 +148,19 @@ IsDelete
 
 #####price#####
 PriceID:""
+PriceProductID:""  HotelID  / tdHotelID
+PriceCompetitorID:"" Fiyat Rakip Kimliği / tdId
 PriceSet:
   {
-    PriceSetType:""
-    PriceSetDate:""
-    PriceSetStartDate:""
-    PriceSetFinishDate:""
-    PriceSetQuery:""
+    PriceSetType:"" Paket Fiyat Türü / priceSetType
+    PriceSetDate:"" Paket Fiyat Tarihi / priceDate
+    PriceSetStartDate:"" Paket Fiyat Başlangıç Tarihi / checkin
+    PriceSetFinishDate:"" Paket Fiyat Bitiş Tarihi / checkout
+    PriceSetQuery:"" Paket Fiyat Sorgusu / ""
   }
-PriceProductID:""
-PriceCompetitorID:""
-PriceTitle:""
-PriceDesc:""
-PriceAmount:""
-PriceCur:""
-PriceDate:""
-IsDelete:""
+PriceTitle:"" Oda Türü / 
+PriceDesc:"" Konsept / 
+PriceAmount:"" Fiyat Tutarı / 
+PriceCur:"" Fiyat Cur / TRY
+IsDelete:"" 0
+
